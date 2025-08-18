@@ -12,8 +12,10 @@ services:
       - ./:/app
       - strapi_uploads:/app/public/uploads
     command: sh -c "yarn install --production && yarn build && yarn start"
+    #command: sh -c "yarn install && yarn develop"
     environment:
       NODE_ENV: production
+      #NODE_ENV: development
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_HOST: ${DATABASE_HOST}
