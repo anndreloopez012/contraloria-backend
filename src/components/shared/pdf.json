@@ -1,9 +1,7 @@
 {
-  "collectionName": "components_shared_rich_texts",
+  "collectionName": "components_shared_pdfs",
   "info": {
-    "displayName": "Content",
-    "icon": "align-justify",
-    "description": ""
+    "displayName": "Pdf"
   },
   "options": {},
   "attributes": {
@@ -23,19 +21,24 @@
       "required": true,
       "default": 6
     },
-    "type": {
-      "type": "string",
-      "private": true,
-      "default": "content"
-    },
     "category": {
       "type": "enumeration",
       "enum": [
         "opciones"
       ]
     },
-    "content": {
-      "type": "richtext"
+    "type": {
+      "type": "string",
+      "private": true,
+      "default": "pdf"
+    },
+    "pdf": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files"
+      ]
     }
-  }
+  },
+  "config": {}
 }

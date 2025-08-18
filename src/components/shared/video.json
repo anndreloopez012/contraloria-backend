@@ -1,9 +1,7 @@
 {
-  "collectionName": "components_shared_rich_texts",
+  "collectionName": "components_shared_videos",
   "info": {
-    "displayName": "Content",
-    "icon": "align-justify",
-    "description": ""
+    "displayName": "Video"
   },
   "options": {},
   "attributes": {
@@ -26,7 +24,7 @@
     "type": {
       "type": "string",
       "private": true,
-      "default": "content"
+      "default": "video"
     },
     "category": {
       "type": "enumeration",
@@ -34,8 +32,21 @@
         "opciones"
       ]
     },
-    "content": {
-      "type": "richtext"
+    "video": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "enlace": {
+      "type": "customField",
+      "customField": "plugin::video-field.video"
+    },
+    "iframe": {
+      "type": "customField",
+      "customField": "plugin::oembed.oembed"
     }
-  }
+  },
+  "config": {}
 }

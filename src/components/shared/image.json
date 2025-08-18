@@ -1,9 +1,7 @@
 {
-  "collectionName": "components_shared_rich_texts",
+  "collectionName": "components_shared_images",
   "info": {
-    "displayName": "Content",
-    "icon": "align-justify",
-    "description": ""
+    "displayName": "Image"
   },
   "options": {},
   "attributes": {
@@ -23,19 +21,24 @@
       "required": true,
       "default": 6
     },
-    "type": {
-      "type": "string",
-      "private": true,
-      "default": "content"
-    },
     "category": {
       "type": "enumeration",
       "enum": [
         "opciones"
       ]
     },
-    "content": {
-      "type": "richtext"
+    "type": {
+      "type": "string",
+      "private": true,
+      "default": "image"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
-  }
+  },
+  "config": {}
 }

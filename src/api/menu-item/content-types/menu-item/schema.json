@@ -1,4 +1,5 @@
 {
+  "kind": "collectionType",
   "collectionName": "menu_items",
   "info": {
     "singularName": "menu-item",
@@ -9,7 +10,20 @@
   "options": {
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
+    "menu": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::menu.menu",
+      "inversedBy": "items"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-item.menu-item",
+      "mappedBy": "parent"
+    },
     "title": {
       "type": "string",
       "required": true
@@ -18,6 +32,13 @@
       "type": "string",
       "required": false
     },
+    "route": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "text"
+    },
     "target_blank": {
       "type": "boolean",
       "default": false
@@ -25,8 +46,18 @@
     "icon": {
       "type": "string"
     },
-    "order": {
+    "priority": {
       "type": "integer"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "parent": {
       "type": "relation",
@@ -34,17 +65,15 @@
       "target": "api::menu-item.menu-item",
       "inversedBy": "children"
     },
-    "children": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::menu-item.menu-item",
-      "mappedBy": "parent"
+    "bgColor": {
+      "type": "string"
     },
-    "menu": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::menu.menu",
-      "inversedBy": "items"
+    "color": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
