@@ -4,7 +4,7 @@
   "info": {
     "singularName": "menu-item",
     "pluralName": "menu-items",
-    "displayName": "Ítem de menú",
+    "displayName": "Item De Menú",
     "description": "Elemento individual del menú con soporte para niveles infinitos"
   },
   "options": {
@@ -46,7 +46,7 @@
     "icon": {
       "type": "string"
     },
-    "priority": {
+    "order": {
       "type": "integer"
     },
     "images": {
@@ -64,12 +64,6 @@
       "relation": "manyToOne",
       "target": "api::menu-item.menu-item",
       "inversedBy": "children"
-    },
-    "bgColor": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string"
     },
     "active": {
       "type": "boolean",

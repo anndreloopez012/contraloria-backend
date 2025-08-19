@@ -1,16 +1,17 @@
 {
-  "collectionName": "components_shared_pdfs",
+  "collectionName": "components_shared_audio",
   "info": {
-    "displayName": "Pdf"
+    "displayName": "Audio"
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
-    "description": {
-      "type": "text"
+    "descrip": {
+      "type": "string"
     },
     "order": {
       "type": "integer",
@@ -18,26 +19,20 @@
     },
     "col": {
       "type": "integer",
-      "required": true,
-      "default": 6
-    },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "opciones"
-      ]
+      "required": true
     },
     "type": {
       "type": "string",
       "private": true,
-      "default": "pdf"
+      "default": "audio",
+      "required": true
     },
-    "pdf": {
+    "files": {
       "type": "media",
       "multiple": true,
       "required": true,
       "allowedTypes": [
-        "files"
+        "audios"
       ]
     }
   },

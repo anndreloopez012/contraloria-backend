@@ -8,6 +8,54 @@ export interface ContentContentPageFlex extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface ContentServices extends Struct.ComponentSchema {
+  collectionName: 'components_content_services';
+  info: {
+    displayName: 'Services';
+    icon: 'file';
+  };
+  attributes: {
+    col: Schema.Attribute.Integer & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ContentSocial extends Struct.ComponentSchema {
+  collectionName: 'components_content_socials';
+  info: {
+    displayName: 'Social';
+  };
+  attributes: {
+    Icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    url: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedAudio extends Struct.ComponentSchema {
+  collectionName: 'components_shared_audio';
+  info: {
+    displayName: 'Audio';
+  };
+  attributes: {
+    col: Schema.Attribute.Integer & Schema.Attribute.Required;
+    descrip: Schema.Attribute.String;
+    files: Schema.Attribute.Media<'audios', true> & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    type: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.DefaultTo<'audio'>;
+  };
+}
+
 export interface SharedImage extends Struct.ComponentSchema {
   collectionName: 'components_shared_images';
   info: {
@@ -35,7 +83,8 @@ export interface SharedMedia extends Struct.ComponentSchema {
     icon: 'file-video';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -51,7 +100,7 @@ export interface SharedPdf extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<6>;
     description: Schema.Attribute.Text;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
-    pdf: Schema.Attribute.Media<'files', true>;
+    pdf: Schema.Attribute.Media<'files', true> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
@@ -116,7 +165,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    files: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
   };
 }
 
@@ -148,6 +197,9 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content.content-page-flex': ContentContentPageFlex;
+      'content.services': ContentServices;
+      'content.social': ContentSocial;
+      'shared.audio': SharedAudio;
       'shared.image': SharedImage;
       'shared.media': SharedMedia;
       'shared.pdf': SharedPdf;

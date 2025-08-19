@@ -10,8 +10,10 @@
     "files": {
       "type": "media",
       "multiple": true,
-      "required": false,
-      "allowedTypes": ["images"]
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
