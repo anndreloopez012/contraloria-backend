@@ -1,25 +1,29 @@
 {
   "collectionName": "components_content_socials",
   "info": {
-    "displayName": "Social"
+    "displayName": "Redes sociales"
   },
   "options": {},
   "attributes": {
     "Title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true,
       "unique": true
     },
     "Icon": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Icono",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "url": {
       "type": "text",
+      "configurable": true,
+      "displayName": "URL",
       "required": false
     }
   },

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_sliders",
   "info": {
-    "displayName": "Slider",
+    "displayName": "Slider de imágenes",
     "icon": "address-book",
     "description": ""
   },
@@ -9,11 +9,11 @@
   "attributes": {
     "files": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Imágenes",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     }
   }
 }

@@ -3,21 +3,27 @@
   "info": {
     "name": "Seo",
     "icon": "allergies",
-    "displayName": "Seo",
+    "displayName": "SEO",
     "description": ""
   },
   "options": {},
   "attributes": {
     "metaTitle": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título meta",
       "required": true
     },
     "metaDescription": {
       "type": "text",
+      "configurable": true,
+      "displayName": "Descripción meta",
       "required": true
     },
     "shareImage": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Imagen para compartir",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]

@@ -4,8 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
-    "description": "Create your blog content"
+    "displayName": "Artículos",
+    "description": "Crea el contenido de tu blog"
   },
   "options": {
     "draftAndPublish": true
@@ -13,37 +13,56 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "configurable": true,
+      "displayName": "Título"
     },
     "description": {
       "type": "text",
+      "configurable": true,
+      "displayName": "Descripción breve",
       "maxLength": 80
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "configurable": true,
+      "displayName": "Slug"
     },
     "cover": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Portada",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images", "files", "videos"]
     },
     "author": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Autor",
       "relation": "manyToOne",
       "target": "api::author.author",
       "inversedBy": "articles"
     },
     "category": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Categoría",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "articles"
     },
     "blocks": {
       "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+      "configurable": true,
+      "displayName": "Bloques de contenido",
+      "components": [
+        "shared.media",
+        "shared.quote",
+        "shared.rich-text",
+        "shared.slider"
+      ]
     }
   }
 }

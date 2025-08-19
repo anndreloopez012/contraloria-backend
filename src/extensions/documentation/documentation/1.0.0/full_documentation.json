@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-19T07:41:26.479Z"
+    "x-generation-date": "2025-08-19T08:33:44.054Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -12807,7 +12807,10 @@
                 "type": "string"
               },
               "Services_Buttons": {
-                "$ref": "#/components/schemas/ContentServicesComponent"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ContentServicesComponent"
+                }
               },
               "Image": {
                 "oneOf": [
@@ -13036,7 +13039,10 @@
             "type": "string"
           },
           "Services_Buttons": {
-            "$ref": "#/components/schemas/ContentServicesComponent"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContentServicesComponent"
+            }
           },
           "Image": {
             "type": "object",
@@ -13676,7 +13682,10 @@
                   "type": "string"
                 },
                 "Services_Buttons": {
-                  "$ref": "#/components/schemas/ContentServicesComponent"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContentServicesComponent"
+                  }
                 },
                 "Image": {
                   "type": "object",

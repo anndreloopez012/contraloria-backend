@@ -1,44 +1,54 @@
 {
   "collectionName": "components_shared_pdfs",
   "info": {
-    "displayName": "Pdf"
+    "displayName": "PDFs"
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "configurable": true,
+      "displayName": "Descripción"
     },
     "order": {
       "type": "integer",
+      "configurable": true,
+      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
+      "configurable": true,
+      "displayName": "Columna",
       "required": true,
       "default": 6
     },
     "category": {
       "type": "enumeration",
-      "enum": [
-        "opciones"
-      ]
+      "configurable": true,
+      "displayName": "Categoría",
+      "enum": ["opciones"]
     },
     "type": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Tipo",
       "private": true,
       "default": "pdf"
     },
     "pdf": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Archivo PDF",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "files"
-      ]
+      "allowedTypes": ["files"]
     }
   },
   "config": {}

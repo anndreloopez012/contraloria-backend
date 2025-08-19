@@ -4,8 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category",
-    "description": "Organize your content into categories"
+    "displayName": "Categorías",
+    "description": "Organiza tu contenido en categorías"
   },
   "options": {
     "draftAndPublish": false
@@ -13,19 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "configurable": true,
+      "displayName": "Nombre"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "configurable": true,
+      "displayName": "Slug"
     },
     "articles": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Artículos",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "category"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "configurable": true,
+      "displayName": "Descripción"
     }
   }
 }

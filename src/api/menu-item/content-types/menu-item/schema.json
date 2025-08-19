@@ -4,7 +4,7 @@
   "info": {
     "singularName": "menu-item",
     "pluralName": "menu-items",
-    "displayName": "Item De Menú",
+    "displayName": "Ítem de menú",
     "description": "Elemento individual del menú con soporte para niveles infinitos"
   },
   "options": {
@@ -14,59 +14,78 @@
   "attributes": {
     "menu": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Menú",
       "relation": "manyToOne",
       "target": "api::menu.menu",
       "inversedBy": "items"
     },
     "children": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Subítems",
       "relation": "oneToMany",
       "target": "api::menu-item.menu-item",
       "mappedBy": "parent"
     },
     "title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true
     },
     "url": {
       "type": "string",
+      "configurable": true,
+      "displayName": "URL",
       "required": false
     },
     "route": {
       "type": "uid",
+      "configurable": true,
+      "displayName": "Ruta",
       "targetField": "title"
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "configurable": true,
+      "displayName": "Descripción"
     },
     "target_blank": {
       "type": "boolean",
+      "configurable": true,
+      "displayName": "Abrir en nueva pestaña",
       "default": false
     },
     "icon": {
-      "type": "string"
+      "type": "string",
+      "configurable": true,
+      "displayName": "Icono"
     },
     "order": {
-      "type": "integer"
+      "type": "integer",
+      "configurable": true,
+      "displayName": "Orden"
     },
     "images": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Imágenes",
       "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "parent": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Padre",
       "relation": "manyToOne",
       "target": "api::menu-item.menu-item",
       "inversedBy": "children"
     },
     "active": {
       "type": "boolean",
+      "configurable": true,
+      "displayName": "Activo",
       "default": true
     }
   }

@@ -4,8 +4,8 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "Author",
-    "description": "Create authors for your content"
+    "displayName": "Autores",
+    "description": "Crea autores para tu contenido"
   },
   "options": {
     "draftAndPublish": false
@@ -13,19 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "configurable": true,
+      "displayName": "Nombre"
     },
     "avatar": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Foto de perfil",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images", "files", "videos"]
     },
     "email": {
-      "type": "string"
+      "type": "string",
+      "configurable": true,
+      "displayName": "Correo electrónico"
     },
     "articles": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Artículos",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "author"

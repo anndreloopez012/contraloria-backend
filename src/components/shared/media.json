@@ -1,21 +1,18 @@
 {
   "collectionName": "components_shared_media",
   "info": {
-    "displayName": "Media",
+    "displayName": "Medios",
     "icon": "file-video"
   },
   "options": {},
   "attributes": {
     "file": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Archivo",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     }
   }
 }

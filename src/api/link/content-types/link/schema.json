@@ -4,7 +4,7 @@
   "info": {
     "singularName": "link",
     "pluralName": "links",
-    "displayName": "Link"
+    "displayName": "Enlaces"
   },
   "options": {
     "draftAndPublish": true
@@ -13,32 +13,38 @@
   "attributes": {
     "Title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true,
       "unique": true
     },
     "Background": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Fondo",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "Description": {
       "type": "richtext",
+      "configurable": true,
+      "displayName": "Descripción",
       "required": true
     },
     "Url": {
       "type": "text",
+      "configurable": true,
+      "displayName": "URL",
       "required": true,
       "unique": true
     },
     "Image": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Imagen",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     }
   }
 }

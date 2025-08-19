@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home"
+    "displayName": "Inicio"
   },
   "options": {
     "draftAndPublish": true
@@ -30,7 +30,7 @@
     "Services_Buttons": {
       "type": "component",
       "component": "content.services",
-      "repeatable": false,
+      "repeatable": true,
       "required": true
     },
     "Image": {
@@ -43,7 +43,8 @@
     "Menu": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu.menu"
+      "target": "api::menu.menu",
+      "displayName": "Menú"
     }
   }
 }

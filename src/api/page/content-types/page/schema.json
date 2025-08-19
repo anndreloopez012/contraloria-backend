@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page"
+    "displayName": "Páginas"
   },
   "options": {
     "draftAndPublish": true
@@ -17,11 +17,15 @@
   "attributes": {
     "slug": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Enlace del menú",
       "relation": "oneToOne",
       "target": "api::menu-item.menu-item"
     },
     "title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -31,6 +35,8 @@
     },
     "description": {
       "type": "text",
+      "configurable": true,
+      "displayName": "Descripción",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -39,27 +45,31 @@
     },
     "seo": {
       "type": "component",
+      "configurable": true,
+      "displayName": "SEO",
+      "component": "shared.seo",
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "component": "shared.seo",
-      "repeatable": false
+      }
     },
     "block": {
       "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "configurable": true,
+      "displayName": "Bloques de contenido",
       "components": [
         "shared.video",
         "shared.rich-text",
         "shared.pdf",
         "shared.image"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

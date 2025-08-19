@@ -1,50 +1,64 @@
 {
   "collectionName": "components_shared_videos",
   "info": {
-    "displayName": "Video"
+    "displayName": "Videos"
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "configurable": true,
+      "displayName": "Descripción"
     },
     "order": {
       "type": "integer",
+      "configurable": true,
+      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
+      "configurable": true,
+      "displayName": "Columna",
       "required": true,
       "default": 6
     },
     "type": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Tipo",
       "private": true,
       "default": "video"
     },
     "category": {
       "type": "enumeration",
-      "enum": [
-        "opciones"
-      ]
+      "configurable": true,
+      "displayName": "Categoría",
+      "enum": ["opciones"]
     },
     "video": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Video",
       "multiple": true,
-      "allowedTypes": [
-        "videos"
-      ]
+      "allowedTypes": ["videos"]
     },
     "enlace": {
       "type": "customField",
+      "configurable": true,
+      "displayName": "Enlace",
       "customField": "plugin::video-field.video"
     },
     "iframe": {
       "type": "customField",
+      "configurable": true,
+      "displayName": "Iframe",
       "customField": "plugin::oembed.oembed"
     }
   },

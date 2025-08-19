@@ -13,20 +13,23 @@
   "attributes": {
     "question": {
       "type": "text",
+      "configurable": true,
+      "displayName": "Pregunta",
       "required": true,
       "unique": true
     },
     "response": {
       "type": "text",
+      "configurable": true,
+      "displayName": "Respuesta",
       "required": true
     },
     "files": {
       "type": "media",
+      "configurable": true,
+      "displayName": "Archivos",
       "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     }
   }
 }

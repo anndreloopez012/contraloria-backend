@@ -4,7 +4,7 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "Footer"
+    "displayName": "Pie de página"
   },
   "options": {
     "draftAndPublish": true
@@ -12,15 +12,21 @@
   "pluginOptions": {},
   "attributes": {
     "Description": {
-      "type": "text"
+      "type": "text",
+      "configurable": true,
+      "displayName": "Descripción"
     },
     "Social": {
       "type": "component",
+      "configurable": true,
+      "displayName": "Redes sociales",
       "component": "content.social",
       "repeatable": true
     },
     "Info": {
       "type": "richtext",
+      "configurable": true,
+      "displayName": "Información",
       "required": true
     }
   }

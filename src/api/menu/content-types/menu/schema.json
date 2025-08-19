@@ -4,7 +4,7 @@
   "info": {
     "singularName": "menu",
     "pluralName": "menus",
-    "displayName": "Menú",
+    "displayName": "Menús",
     "description": "Contenedor de menú principal"
   },
   "options": {
@@ -13,15 +13,21 @@
   "attributes": {
     "title": {
       "type": "string",
+      "configurable": true,
+      "displayName": "Título",
       "required": true
     },
     "slug": {
       "type": "uid",
+      "configurable": true,
+      "displayName": "Slug",
       "targetField": "title",
       "required": true
     },
     "items": {
       "type": "relation",
+      "configurable": true,
+      "displayName": "Ítems del menú",
       "relation": "oneToMany",
       "target": "api::menu-item.menu-item",
       "mappedBy": "menu"
