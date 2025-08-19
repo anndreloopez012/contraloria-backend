@@ -7,7 +7,7 @@ export default [
     config: {
       origin: [
         'http://localhost',
-        'https://backend.server-softplus.plus',
+        'https://cgc-adm.server-softplus.plus',
         'https://cgc.server-softplus.plus',
         'https://server-softplus.plus',
         'http://91.99.220.119:1337',   
