@@ -26,6 +26,22 @@ services:
       DATABASE_FILENAME: ${DATABASE_FILENAME}
       JWT_SECRET: ${JWT_SECRET}
     restart: always
+#comentar si es desarrollo
+    networks:
+      - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=dokploy-network
+      - traefik.http.routers.strapi.rule=Host(`cgc-adm.server-softplus.plus`)
+      - traefik.http.routers.strapi.entrypoints=websecure
+      - traefik.http.routers.strapi.tls=true
+      - traefik.http.services.strapi.loadbalancer.server.port=1337
+
+networks:
+  dokploy-network:
+    external: true
+#comentar hasta aqui
 
 volumes:
   strapi_uploads:
+
