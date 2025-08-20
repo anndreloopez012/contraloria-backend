@@ -23,7 +23,11 @@
       "displayName": "Foto de perfil",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "email": {
       "type": "string",
@@ -32,8 +36,6 @@
     },
     "articles": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Artículos",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "author"

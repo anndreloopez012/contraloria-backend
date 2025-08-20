@@ -15,18 +15,11 @@ export interface ContentServices extends Struct.ComponentSchema {
     icon: 'file';
   };
   attributes: {
-    col: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    logo: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    slug: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    col: Schema.Attribute.Integer & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -161,7 +154,7 @@ export interface SharedRichText extends Struct.ComponentSchema {
   collectionName: 'components_shared_rich_texts';
   info: {
     description: '';
-    displayName: 'Content';
+    displayName: 'Contenido';
     icon: 'align-justify';
   };
   attributes: {

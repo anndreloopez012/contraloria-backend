@@ -415,24 +415,17 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'> &
-      Schema.Attribute.Configurable;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     > &
-      Schema.Attribute.Configurable;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'> &
-      Schema.Attribute.Configurable;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
-      Schema.Attribute.Configurable;
+      Schema.Attribute.Required;
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -440,8 +433,8 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Configurable;
-    title: Schema.Attribute.String & Schema.Attribute.Configurable;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -460,8 +453,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'> &
-      Schema.Attribute.Configurable;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
       Schema.Attribute.Configurable;
     createdAt: Schema.Attribute.DateTime;
@@ -494,8 +486,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'> &
-      Schema.Attribute.Configurable;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -628,31 +619,26 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Background: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    Background: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Configurable;
+    Description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::link.link'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.String & Schema.Attribute.Required;
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.Configurable;
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Url: Schema.Attribute.Text &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.Configurable;
+      Schema.Attribute.Unique;
   };
 }
 
@@ -660,7 +646,7 @@ export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
   collectionName: 'menu_items';
   info: {
     description: 'Elemento individual del men\u00FA con soporte para niveles infinitos';
-    displayName: '\u00CDtem de men\u00FA';
+    displayName: 'Men\u00FA Opciones';
     pluralName: 'menu-items';
     singularName: 'menu-item';
   };
@@ -668,47 +654,37 @@ export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    active: Schema.Attribute.Boolean &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.DefaultTo<true>;
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     children: Schema.Attribute.Relation<
       'oneToMany',
       'api::menu-item.menu-item'
-    > &
-      Schema.Attribute.Configurable;
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Configurable;
-    icon: Schema.Attribute.String & Schema.Attribute.Configurable;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.String;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    > &
-      Schema.Attribute.Configurable;
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::menu-item.menu-item'
     > &
       Schema.Attribute.Private;
-    menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'> &
-      Schema.Attribute.Configurable;
-    order: Schema.Attribute.Integer & Schema.Attribute.Configurable;
-    parent: Schema.Attribute.Relation<'manyToOne', 'api::menu-item.menu-item'> &
-      Schema.Attribute.Configurable;
+    menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'>;
+    order: Schema.Attribute.Integer;
+    parent: Schema.Attribute.Relation<'manyToOne', 'api::menu-item.menu-item'>;
     publishedAt: Schema.Attribute.DateTime;
-    route: Schema.Attribute.UID<'title'> & Schema.Attribute.Configurable;
-    target_blank: Schema.Attribute.Boolean &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.DefaultTo<false>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    route: Schema.Attribute.UID<'title'>;
+    target_blank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String & Schema.Attribute.Configurable;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -727,8 +703,7 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    items: Schema.Attribute.Relation<'oneToMany', 'api::menu-item.menu-item'> &
-      Schema.Attribute.Configurable;
+    items: Schema.Attribute.Relation<'oneToMany', 'api::menu-item.menu-item'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::menu.menu'> &
       Schema.Attribute.Private;
@@ -788,51 +763,21 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
     block: Schema.Attribute.DynamicZone<
       ['shared.video', 'shared.rich-text', 'shared.pdf', 'shared.image']
-    > &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Schema.Attribute.Relation<'oneToOne', 'api::menu-item.menu-item'> &
-      Schema.Attribute.Configurable;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.Relation<'oneToOne', 'api::menu-item.menu-item'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

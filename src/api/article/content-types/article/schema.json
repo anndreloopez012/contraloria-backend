@@ -14,55 +14,50 @@
   "attributes": {
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título"
+      "required": true
     },
     "description": {
       "type": "text",
-      "configurable": true,
-      "displayName": "Descripción breve",
-      "maxLength": 80
+      "required": true
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "configurable": true,
-      "displayName": "Slug"
+      "required": true
     },
     "cover": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Portada",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "author": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Autor",
       "relation": "manyToOne",
       "target": "api::author.author",
+      "displayName": "Autor",
       "inversedBy": "articles"
     },
     "category": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Categoría",
       "relation": "manyToOne",
       "target": "api::category.category",
+      "displayName": "Categoría",
       "inversedBy": "articles"
     },
     "blocks": {
       "type": "dynamiczone",
-      "configurable": true,
-      "displayName": "Bloques de contenido",
       "components": [
         "shared.media",
         "shared.quote",
         "shared.rich-text",
         "shared.slider"
-      ]
+      ],
+      "required": true
     }
   }
 }

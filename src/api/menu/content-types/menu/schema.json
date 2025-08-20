@@ -26,8 +26,6 @@
     },
     "items": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Ítems del menú",
       "relation": "oneToMany",
       "target": "api::menu-item.menu-item",
       "mappedBy": "menu"

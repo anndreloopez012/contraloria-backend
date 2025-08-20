@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-08-19T08:33:44.054Z"
+    "x-generation-date": "2025-08-20T00:41:02.357Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -7460,6 +7460,12 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "title",
+              "description",
+              "slug",
+              "blocks"
+            ],
             "type": "object",
             "properties": {
               "title": {
@@ -7590,6 +7596,12 @@
       },
       "Article": {
         "type": "object",
+        "required": [
+          "title",
+          "description",
+          "slug",
+          "blocks"
+        ],
         "properties": {
           "id": {
             "type": "number"
@@ -13900,6 +13912,9 @@
           "id": {
             "type": "number"
           },
+          "Nombre": {
+            "type": "string"
+          },
           "logo": {
             "type": "object",
             "properties": {
@@ -14048,6 +14063,7 @@
         "properties": {
           "data": {
             "required": [
+              "Slug",
               "Title",
               "Background",
               "Description",
@@ -14055,6 +14071,9 @@
             ],
             "type": "object",
             "properties": {
+              "Slug": {
+                "type": "string"
+              },
               "Title": {
                 "type": "string"
               },
@@ -14145,6 +14164,7 @@
       "Link": {
         "type": "object",
         "required": [
+          "Slug",
           "Title",
           "Background",
           "Description",
@@ -14155,6 +14175,9 @@
             "type": "number"
           },
           "documentId": {
+            "type": "string"
+          },
+          "Slug": {
             "type": "string"
           },
           "Title": {
@@ -14939,6 +14962,9 @@
                   "type": "number"
                 },
                 "documentId": {
+                  "type": "string"
+                },
+                "Slug": {
                   "type": "string"
                 },
                 "Title": {

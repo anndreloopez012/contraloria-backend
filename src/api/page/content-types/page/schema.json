@@ -9,67 +9,34 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "slug": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Enlace del menú",
       "relation": "oneToOne",
-      "target": "api::menu-item.menu-item"
+      "target": "api::menu-item.menu-item",
+      "displayName": "Enlace del menú"
     },
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "required": true
     },
     "description": {
-      "type": "text",
-      "configurable": true,
-      "displayName": "Descripción",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "text"
     },
     "seo": {
       "type": "component",
-      "configurable": true,
-      "displayName": "SEO",
       "component": "shared.seo",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "repeatable": false
     },
     "block": {
       "type": "dynamiczone",
-      "configurable": true,
-      "displayName": "Bloques de contenido",
       "components": [
         "shared.video",
         "shared.rich-text",
         "shared.pdf",
         "shared.image"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     }
   }
 }

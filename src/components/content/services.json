@@ -6,30 +6,28 @@
   },
   "options": {},
   "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
     "logo": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Logo",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "slug": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Slug",
       "required": true
     },
     "order": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Columna",
       "required": true
     }
   },

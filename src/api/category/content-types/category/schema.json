@@ -24,8 +24,6 @@
     },
     "articles": {
       "type": "relation",
-      "configurable": true,
-      "displayName": "Artículos",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "category"
