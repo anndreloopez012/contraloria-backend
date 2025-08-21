@@ -162,7 +162,13 @@ export interface SharedRichText extends Struct.ComponentSchema {
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<6>;
-    content: Schema.Attribute.RichText;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultMarkdown';
+        }
+      >;
     description: Schema.Attribute.Text;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;

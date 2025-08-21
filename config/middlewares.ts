@@ -5,17 +5,9 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: [
-        'http://localhost',
-        'https://cgc-adm.server-softplus.plus',
-        'http://cgc-adm.server-softplus.plus',
-        'https://cgc.server-softplus.plus',
-        'http://cgc.server-softplus.plus',
-        'https://server-softplus.plus',  
-        'http://server-softplus.plus'  
-      ],
+      origin: true, // permite cualquier dominio
       credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: '*',
     },
   },
