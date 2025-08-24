@@ -7,59 +7,42 @@
   "attributes": {
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título",
       "required": true
     },
     "description": {
-      "type": "text",
-      "configurable": true,
-      "displayName": "Descripción"
+      "type": "text"
     },
     "order": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Columna",
       "required": true,
       "default": 6
     },
     "type": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Tipo",
       "private": true,
       "default": "video"
     },
     "category": {
       "type": "enumeration",
-      "configurable": true,
-      "displayName": "Categoría",
-      "enum": ["opciones"]
+      "enum": [
+        "opciones"
+      ]
     },
     "video": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Video",
       "multiple": true,
-      "allowedTypes": ["videos"]
-    },
-    "enlace": {
-      "type": "customField",
-      "configurable": true,
-      "displayName": "Enlace",
-      "customField": "plugin::video-field.video"
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "iframe": {
       "type": "customField",
-      "configurable": true,
-      "displayName": "Iframe",
-      "customField": "plugin::oembed.oembed"
+      "customField": "plugin::oembed.oembed",
+      "displayName": "Iframe"
     }
   },
   "config": {}

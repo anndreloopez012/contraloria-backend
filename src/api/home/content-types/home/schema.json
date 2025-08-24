@@ -33,13 +33,6 @@
       "repeatable": true,
       "required": true
     },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Menu": {
       "type": "relation",
       "relation": "oneToOne",

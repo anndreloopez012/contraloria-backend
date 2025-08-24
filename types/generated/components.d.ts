@@ -218,31 +218,19 @@ export interface SharedVideo extends Struct.ComponentSchema {
     displayName: 'Videos';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['opciones']> &
-      Schema.Attribute.Configurable;
+    category: Schema.Attribute.Enumeration<['opciones']>;
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<6>;
-    description: Schema.Attribute.Text & Schema.Attribute.Configurable;
-    enlace: Schema.Attribute.JSON &
-      Schema.Attribute.Configurable &
-      Schema.Attribute.CustomField<'plugin::video-field.video'>;
+    description: Schema.Attribute.Text;
     iframe: Schema.Attribute.JSON &
-      Schema.Attribute.Configurable &
       Schema.Attribute.CustomField<'plugin::oembed.oembed'>;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<'video'>;
-    video: Schema.Attribute.Media<'videos', true> &
-      Schema.Attribute.Configurable;
+    video: Schema.Attribute.Media<'videos', true>;
   };
 }
 
