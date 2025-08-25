@@ -15,11 +15,12 @@ export interface ContentServices extends Struct.ComponentSchema {
     icon: 'file';
   };
   attributes: {
+    blank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     col: Schema.Attribute.Integer & Schema.Attribute.Required;
     logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     Nombre: Schema.Attribute.String & Schema.Attribute.Required;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.Text;
   };
 }
 

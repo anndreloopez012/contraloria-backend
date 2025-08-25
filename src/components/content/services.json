@@ -22,13 +22,16 @@
       "type": "string",
       "required": true
     },
-    "order": {
-      "type": "integer",
-      "required": true
-    },
     "col": {
       "type": "integer",
       "required": true
+    },
+    "blank": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "text"
     }
   },
   "config": {}

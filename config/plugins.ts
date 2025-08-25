@@ -25,4 +25,8 @@ export default () => ({
         enabled: true,
     },
 
+    'drag-drop-content-types-strapi5': {
+        enabled: true,
+    },
+
 });
