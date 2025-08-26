@@ -114,6 +114,8 @@ export interface SharedPdf extends Struct.ComponentSchema {
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<6>;
+    color_bottom: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     description: Schema.Attribute.Text;
     dowload: Schema.Attribute.Integer;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
