@@ -115,6 +115,8 @@ export interface SharedPdf extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<6>;
     description: Schema.Attribute.Text;
+    dowload: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     order: Schema.Attribute.Integer & Schema.Attribute.Required;
     pdf: Schema.Attribute.Media<'files', true> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;

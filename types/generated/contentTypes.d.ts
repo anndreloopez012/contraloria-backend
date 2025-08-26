@@ -433,6 +433,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -627,6 +628,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     Menu: Schema.Attribute.Relation<'oneToOne', 'api::menu.menu'>;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Services_Buttons: Schema.Attribute.Component<'content.services', true> &
       Schema.Attribute.Required;
     Slider: Schema.Attribute.Component<'shared.slider', false>;
@@ -663,6 +665,7 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::link.link'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Slug: Schema.Attribute.String & Schema.Attribute.Required;
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &

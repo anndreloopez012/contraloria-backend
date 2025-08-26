@@ -38,6 +38,11 @@
       "relation": "oneToOne",
       "target": "api::menu.menu",
       "displayName": "Menú"
+    },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

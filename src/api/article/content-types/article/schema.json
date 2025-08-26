@@ -25,6 +25,11 @@
       "targetField": "title",
       "required": true
     },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
     "cover": {
       "type": "media",
       "multiple": false,
