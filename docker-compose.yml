@@ -11,11 +11,11 @@ services:
     volumes:
       - ./:/app
       - strapi_uploads:/app/public/uploads
-    command: sh -c "yarn install --production && yarn build && yarn start"
-    #command: sh -c "yarn install && yarn develop"
+    #command: sh -c "yarn install --production && yarn build && yarn start"
+    command: sh -c "npm install && npm run build && npm run develop"
     environment:
-      NODE_ENV: production
-      #NODE_ENV: development
+      #NODE_ENV: production
+      NODE_ENV: development
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_HOST: ${DATABASE_HOST}
@@ -27,21 +27,20 @@ services:
       JWT_SECRET: ${JWT_SECRET}
     restart: always
 #comentar si es desarrollo
-    networks:
-      - dokploy-network
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=dokploy-network
-      - traefik.http.routers.strapi.rule=Host(`cgc-adm.server-softplus.plus`)
-      - traefik.http.routers.strapi.entrypoints=websecure
-      - traefik.http.routers.strapi.tls=true
-      - traefik.http.services.strapi.loadbalancer.server.port=1337
+    #networks:
+    #  - dokploy-network
+    #labels:
+    #  - traefik.enable=true
+    #  - traefik.docker.network=dokploy-network
+    #  - traefik.http.routers.strapi.rule=Host(`cgc-adm.server-softplus.plus`)
+    #  - traefik.http.routers.strapi.entrypoints=websecure
+    #  - traefik.http.routers.strapi.tls=true
+    #  - traefik.http.services.strapi.loadbalancer.server.port=1337
 
-networks:
-  dokploy-network:
-    external: true
+#networks:
+#  dokploy-network:
+#    external: true
 #comentar hasta aqui
 
 volumes:
   strapi_uploads:
-
