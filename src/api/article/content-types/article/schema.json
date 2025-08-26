@@ -12,23 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "slug": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-item.menu-item",
+      "displayName": "Enlace del menú"
+    },
     "title": {
       "type": "string",
       "required": true
     },
     "description": {
-      "type": "text",
-      "required": true
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true
-    },
-    "SEO": {
-      "type": "component",
-      "component": "shared.seo",
-      "repeatable": false
+      "type": "text"
     },
     "cover": {
       "type": "media",
@@ -54,15 +49,20 @@
       "displayName": "Categoría",
       "inversedBy": "articles"
     },
-    "blocks": {
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "block": {
       "type": "dynamiczone",
       "components": [
-        "shared.media",
-        "shared.quote",
+        "shared.video",
         "shared.rich-text",
-        "shared.slider"
-      ],
-      "required": true
+        "shared.pdf",
+        "shared.image"
+      ]
     }
   }
 }
+
