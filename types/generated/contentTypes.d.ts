@@ -417,7 +417,13 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     block: Schema.Attribute.DynamicZone<
-      ['shared.video', 'shared.rich-text', 'shared.pdf', 'shared.image']
+      [
+        'shared.video',
+        'shared.rich-text',
+        'shared.pdf',
+        'shared.image',
+        'shared.audio',
+      ]
     >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
