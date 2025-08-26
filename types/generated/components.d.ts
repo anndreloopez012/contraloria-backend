@@ -47,24 +47,14 @@ export interface SharedAudio extends Struct.ComponentSchema {
     displayName: 'Audio';
   };
   attributes: {
-    col: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    descrip: Schema.Attribute.String & Schema.Attribute.Configurable;
-    files: Schema.Attribute.Media<'audios', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    col: Schema.Attribute.Integer & Schema.Attribute.Required;
+    descrip: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'audios'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.Configurable;
+      Schema.Attribute.Unique;
     type: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.Private &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<'audio'>;
   };
 }
@@ -80,7 +70,6 @@ export interface SharedImage extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<6>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images', true>;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
@@ -119,7 +108,6 @@ export interface SharedPdf extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     dowload: Schema.Attribute.Integer;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     pdf: Schema.Attribute.Media<'files', true> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &

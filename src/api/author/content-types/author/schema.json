@@ -13,14 +13,10 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string",
-      "configurable": true,
-      "displayName": "Nombre"
+      "type": "string"
     },
     "avatar": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Foto de perfil",
       "multiple": false,
       "required": false,
       "allowedTypes": [
@@ -30,15 +26,13 @@
       ]
     },
     "email": {
-      "type": "string",
-      "configurable": true,
-      "displayName": "Correo electrónico"
+      "type": "string"
     },
-    "articles": {
+    "redaccion": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "author"
+      "relation": "manyToOne",
+      "target": "api::redaction.redaction",
+      "inversedBy": "author"
     }
   }
 }

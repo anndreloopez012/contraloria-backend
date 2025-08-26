@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redactions",
+  "info": {
+    "singularName": "redaction",
+    "pluralName": "redactions",
+    "displayName": "Redaccion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-item.menu-item"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author",
+      "mappedBy": "redaccion"
+    },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "block": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.pdf",
+        "shared.video",
+        "shared.rich-text",
+        "shared.image",
+        "shared.audio"
+      ]
+    }
+  }
+}

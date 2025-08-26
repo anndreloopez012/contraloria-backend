@@ -7,43 +7,29 @@
   "attributes": {
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título",
       "required": true,
       "unique": true
     },
     "descrip": {
-      "type": "string",
-      "configurable": true,
-      "displayName": "Descripción"
-    },
-    "order": {
-      "type": "integer",
-      "configurable": true,
-      "displayName": "Orden",
-      "required": true
+      "type": "string"
     },
     "col": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Columna",
       "required": true
     },
     "type": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Tipo",
       "private": true,
       "default": "audio",
-      "required": true
+      "required": false
     },
-    "files": {
+    "file": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Archivos",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": ["audios"]
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
     }
   },
   "config": {}

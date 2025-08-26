@@ -13,25 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string",
-      "configurable": true,
-      "displayName": "Nombre"
+      "type": "string"
     },
     "slug": {
-      "type": "uid",
-      "configurable": true,
-      "displayName": "Slug"
-    },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
+      "type": "uid"
     },
     "description": {
-      "type": "text",
-      "configurable": true,
-      "displayName": "Descripción"
+      "type": "text"
     }
   }
 }
