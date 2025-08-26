@@ -11,14 +11,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "slug": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::menu-item.menu-item"
-    },
     "title": {
       "type": "string",
       "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     },
     "description": {
       "type": "text"
