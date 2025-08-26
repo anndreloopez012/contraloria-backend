@@ -12,10 +12,6 @@
     "description": {
       "type": "text"
     },
-    "order": {
-      "type": "integer",
-      "required": true
-    },
     "col": {
       "type": "integer",
       "required": true,
@@ -25,12 +21,6 @@
       "type": "string",
       "private": true,
       "default": "video"
-    },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "opciones"
-      ]
     },
     "video": {
       "type": "media",

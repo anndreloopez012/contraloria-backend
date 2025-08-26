@@ -14,10 +14,6 @@
     "description": {
       "type": "text"
     },
-    "order": {
-      "type": "integer",
-      "required": true
-    },
     "col": {
       "type": "integer",
       "required": true,
@@ -28,17 +24,11 @@
       "private": true,
       "default": "content"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "opciones"
-      ]
-    },
     "content": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
-        "preset": "defaultMarkdown"
+        "preset": "defaultHtml"
       }
     }
   }

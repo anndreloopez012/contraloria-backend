@@ -474,6 +474,35 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCategoryPdfCategoryPdf extends Struct.CollectionTypeSchema {
+  collectionName: 'category_pdfs';
+  info: {
+    displayName: 'Categorias Pdf';
+    pluralName: 'category-pdfs';
+    singularName: 'category-pdf';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-pdf.category-pdf'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -680,7 +709,6 @@ export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'>;
-    order: Schema.Attribute.Integer;
     parent: Schema.Attribute.Relation<'manyToOne', 'api::menu-item.menu-item'>;
     publishedAt: Schema.Attribute.DateTime;
     route: Schema.Attribute.UID<'title'>;
@@ -1305,6 +1333,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::category-pdf.category-pdf': ApiCategoryPdfCategoryPdf;
       'api::category.category': ApiCategoryCategory;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;

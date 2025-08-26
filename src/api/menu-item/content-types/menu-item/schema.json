@@ -48,9 +48,6 @@
     "icon": {
       "type": "string"
     },
-    "order": {
-      "type": "integer"
-    },
     "images": {
       "type": "media",
       "multiple": true,

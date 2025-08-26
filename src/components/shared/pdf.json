@@ -7,48 +7,37 @@
   "attributes": {
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título",
       "required": true
     },
     "description": {
-      "type": "text",
-      "configurable": true,
-      "displayName": "Descripción"
+      "type": "text"
     },
     "order": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Columna",
       "required": true,
       "default": 6
     },
     "category": {
-      "type": "enumeration",
-      "configurable": true,
-      "displayName": "Categoría",
-      "enum": ["opciones"]
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category-pdf.category-pdf"
     },
     "type": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Tipo",
       "private": true,
       "default": "pdf"
     },
     "pdf": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Archivo PDF",
       "multiple": true,
       "required": true,
-      "allowedTypes": ["files"]
+      "allowedTypes": [
+        "files"
+      ]
     }
   },
   "config": {}

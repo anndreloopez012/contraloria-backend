@@ -75,24 +75,15 @@ export interface SharedImage extends Struct.ComponentSchema {
     displayName: 'Im\u00E1genes';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['opciones']> &
-      Schema.Attribute.Configurable;
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<6>;
-    description: Schema.Attribute.Text & Schema.Attribute.Configurable;
-    image: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Configurable;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images', true>;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<'image'>;
   };
 }
@@ -116,25 +107,19 @@ export interface SharedPdf extends Struct.ComponentSchema {
     displayName: 'PDFs';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['opciones']> &
-      Schema.Attribute.Configurable;
+    category: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-pdf.category-pdf'
+    >;
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<6>;
-    description: Schema.Attribute.Text & Schema.Attribute.Configurable;
-    order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    pdf: Schema.Attribute.Media<'files', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    description: Schema.Attribute.Text;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    pdf: Schema.Attribute.Media<'files', true> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
-      Schema.Attribute.Configurable &
       Schema.Attribute.DefaultTo<'pdf'>;
   };
 }
@@ -159,7 +144,6 @@ export interface SharedRichText extends Struct.ComponentSchema {
     icon: 'align-justify';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['opciones']>;
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<6>;
@@ -167,11 +151,10 @@ export interface SharedRichText extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
-          preset: 'defaultMarkdown';
+          preset: 'defaultHtml';
         }
       >;
     description: Schema.Attribute.Text;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
@@ -219,14 +202,12 @@ export interface SharedVideo extends Struct.ComponentSchema {
     displayName: 'Videos';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['opciones']>;
     col: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<6>;
     description: Schema.Attribute.Text;
     iframe: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::oembed.oembed'>;
-    order: Schema.Attribute.Integer & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &

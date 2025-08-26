@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_pdfs",
+  "info": {
+    "singularName": "category-pdf",
+    "pluralName": "category-pdfs",
+    "displayName": "Categorias Pdf"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

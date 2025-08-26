@@ -7,47 +7,31 @@
   "attributes": {
     "title": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Título",
       "required": true
     },
     "description": {
-      "type": "text",
-      "configurable": true,
-      "displayName": "Descripción"
+      "type": "text"
     },
     "order": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Orden",
       "required": true
     },
     "col": {
       "type": "integer",
-      "configurable": true,
-      "displayName": "Columna",
       "required": true,
       "default": 6
     },
-    "category": {
-      "type": "enumeration",
-      "configurable": true,
-      "displayName": "Categoría",
-      "enum": ["opciones"]
-    },
     "type": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Tipo",
       "private": true,
       "default": "image"
     },
     "image": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Imagen",
       "multiple": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}
