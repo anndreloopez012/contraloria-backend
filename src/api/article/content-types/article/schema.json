@@ -54,7 +54,7 @@
       "component": "shared.seo",
       "repeatable": false
     },
-    "block": {
+    "shared": {
       "type": "dynamiczone",
       "components": [
         "shared.video",

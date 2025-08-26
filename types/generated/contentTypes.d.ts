@@ -416,15 +416,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    block: Schema.Attribute.DynamicZone<
-      [
-        'shared.video',
-        'shared.rich-text',
-        'shared.pdf',
-        'shared.image',
-        'shared.audio',
-      ]
-    >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
@@ -439,6 +430,15 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    shared: Schema.Attribute.DynamicZone<
+      [
+        'shared.video',
+        'shared.rich-text',
+        'shared.pdf',
+        'shared.image',
+        'shared.audio',
+      ]
+    >;
     slug: Schema.Attribute.Relation<'oneToOne', 'api::menu-item.menu-item'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
