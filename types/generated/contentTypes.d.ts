@@ -579,7 +579,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.RichText;
-    Header: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Header: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
@@ -606,7 +606,7 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Background: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Background: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
