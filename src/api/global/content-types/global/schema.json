@@ -14,30 +14,33 @@
   "attributes": {
     "siteName": {
       "type": "string",
-      "configurable": true,
-      "displayName": "Nombre del sitio",
       "required": true
     },
     "favicon": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Favicon",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "siteDescription": {
       "type": "text",
-      "configurable": true,
-      "displayName": "Descripción del sitio",
       "required": true
     },
     "defaultSeo": {
       "type": "component",
-      "configurable": true,
-      "displayName": "SEO predeterminado",
-      "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "organigrama": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
