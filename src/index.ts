@@ -1,20 +1,33 @@
-// import type { Core } from '@strapi/strapi';
-
 export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register() {},
 
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: any }) {
+    const auditAction = async (event: any, action: string, model: string) => {
+      const { result, params } = event;
+
+      await strapi.db.query('api::audit-log.audit-log').create({
+        data: {
+          action,
+          model,
+          entry: result.id,
+          userId: params.ctx?.state?.user?.id || null,
+          before: action === 'DELETE' ? result : null,
+          after: action !== 'DELETE' ? result : null,
+        },
+      });
+    };
+
+    Object.keys(strapi.contentTypes).forEach((modelKey) => {
+      const contentType = strapi.contentTypes[modelKey];
+
+      if (contentType.plugin || modelKey === 'api::audit-log.audit-log') return;
+
+      strapi.db.lifecycles.subscribe({
+        models: [modelKey],
+        afterCreate: (event) => auditAction(event, 'CREATE', modelKey),
+        afterUpdate: (event) => auditAction(event, 'UPDATE', modelKey),
+        afterDelete: (event) => auditAction(event, 'DELETE', modelKey),
+      });
+    });
+  },
 };
