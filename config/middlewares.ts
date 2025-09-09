@@ -1,7 +1,22 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "default-src": ["'self'"],
+          "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://static.cloudflareinsights.com"],
+          "connect-src": ["'self'", "https://static.cloudflareinsights.com"],
+          "img-src": ["'self'", "data:", "blob:"],
+          "style-src": ["'self'", "'unsafe-inline'"],
+          "font-src": ["'self'", "data:"],
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
