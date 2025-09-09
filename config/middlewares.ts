@@ -15,7 +15,7 @@ export default [
             "https://api.github.com"
           ],
           "img-src": ["'self'", "data:", "blob:"],
-          "style-src": ["'self'", "'unsafe-inline'"], // solo inline para estilos si Strapi los usa
+          "style-src": ["'self'"],
           "font-src": ["'self'", "data:"],
         },
       },
@@ -24,7 +24,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: '*', // opcionalmente puedes limitar a tu frontend
+      origin: '*',
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: '*',
