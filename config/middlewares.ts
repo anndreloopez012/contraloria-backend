@@ -8,10 +8,14 @@ export default [
         useDefaults: true,
         directives: {
           "default-src": ["'self'"],
-          "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://static.cloudflareinsights.com"],
-          "connect-src": ["'self'", "https://static.cloudflareinsights.com"],
+          "script-src": ["'self'", "https://static.cloudflareinsights.com"],
+          "connect-src": [
+            "'self'",
+            "https://static.cloudflareinsights.com",
+            "https://api.github.com"
+          ],
           "img-src": ["'self'", "data:", "blob:"],
-          "style-src": ["'self'", "'unsafe-inline'"],
+          "style-src": ["'self'", "'unsafe-inline'"], // solo inline para estilos si Strapi los usa
           "font-src": ["'self'", "data:"],
         },
       },
@@ -20,7 +24,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: '*', // permite cualquier dominio
+      origin: '*', // opcionalmente puedes limitar a tu frontend
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: '*',
