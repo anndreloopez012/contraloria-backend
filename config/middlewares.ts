@@ -8,14 +8,18 @@ export default [
         useDefaults: true,
         directives: {
           "default-src": ["'self'"],
-          "script-src": ["'self'", "https://static.cloudflareinsights.com"],
+          "script-src": [
+            "'self'",
+            "'unsafe-inline'",
+            "https://static.cloudflareinsights.com"
+          ],
           "connect-src": [
             "'self'",
             "https://static.cloudflareinsights.com",
             "https://api.github.com"
           ],
           "img-src": ["'self'", "data:", "blob:"],
-          "style-src": ["'self'"],
+          "style-src": ["'self'", "'unsafe-inline'", "https:"],
           "font-src": ["'self'", "data:"],
         },
       },
