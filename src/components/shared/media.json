@@ -6,13 +6,29 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "file": {
       "type": "media",
-      "configurable": true,
-      "displayName": "Archivo",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

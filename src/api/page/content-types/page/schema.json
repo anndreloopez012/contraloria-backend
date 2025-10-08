@@ -35,7 +35,8 @@
         "shared.video",
         "shared.rich-text",
         "shared.pdf",
-        "shared.image"
+        "shared.image",
+        "shared.media"
       ]
     }
   }

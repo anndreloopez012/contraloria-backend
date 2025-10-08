@@ -7,10 +7,7 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "text"
+      "required": false
     },
     "col": {
       "type": "integer",
@@ -52,6 +49,13 @@
       "type": "customField",
       "customField": "plugin::color-picker.color",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   },
   "config": {}

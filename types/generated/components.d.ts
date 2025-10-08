@@ -50,9 +50,7 @@ export interface SharedAudio extends Struct.ComponentSchema {
     col: Schema.Attribute.Integer & Schema.Attribute.Required;
     descrip: Schema.Attribute.String;
     file: Schema.Attribute.Media<'audios'>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Unique;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'audio'>;
@@ -84,9 +82,11 @@ export interface SharedMedia extends Struct.ComponentSchema {
     icon: 'file-video';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+      Schema.Attribute.Required;
+    img: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -105,11 +105,17 @@ export interface SharedPdf extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<6>;
     color_bottom: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     dowload: Schema.Attribute.Integer;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     pdf: Schema.Attribute.Media<'files', true> & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'pdf'>;
@@ -147,7 +153,7 @@ export interface SharedRichText extends Struct.ComponentSchema {
         }
       >;
     description: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'content'>;
@@ -200,7 +206,7 @@ export interface SharedVideo extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     iframe: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<'plugin::oembed.oembed'>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &
       Schema.Attribute.DefaultTo<'video'>;

@@ -795,7 +795,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
   attributes: {
     block: Schema.Attribute.DynamicZone<
-      ['shared.video', 'shared.rich-text', 'shared.pdf', 'shared.image']
+      [
+        'shared.video',
+        'shared.rich-text',
+        'shared.pdf',
+        'shared.image',
+        'shared.media',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
