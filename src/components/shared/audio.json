@@ -15,7 +15,8 @@
     },
     "col": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 6
     },
     "type": {
       "type": "string",

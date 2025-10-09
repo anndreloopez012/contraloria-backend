@@ -47,7 +47,9 @@ export interface SharedAudio extends Struct.ComponentSchema {
     displayName: 'Audio';
   };
   attributes: {
-    col: Schema.Attribute.Integer & Schema.Attribute.Required;
+    col: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<6>;
     descrip: Schema.Attribute.String;
     file: Schema.Attribute.Media<'audios'>;
     title: Schema.Attribute.String & Schema.Attribute.Unique;
