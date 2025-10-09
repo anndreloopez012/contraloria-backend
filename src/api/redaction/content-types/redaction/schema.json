@@ -52,7 +52,8 @@
         "shared.video",
         "shared.rich-text",
         "shared.image",
-        "shared.audio"
+        "shared.audio",
+        "shared.media"
       ]
     }
   }

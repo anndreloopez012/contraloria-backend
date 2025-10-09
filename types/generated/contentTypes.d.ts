@@ -801,6 +801,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.pdf',
         'shared.image',
         'shared.media',
+        'shared.audio',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -839,6 +840,7 @@ export interface ApiRedactionRedaction extends Struct.CollectionTypeSchema {
         'shared.rich-text',
         'shared.image',
         'shared.audio',
+        'shared.media',
       ]
     >;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;

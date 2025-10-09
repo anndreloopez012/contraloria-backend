@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-10-09T18:54:33.677Z"
+    "x-generation-date": "2025-10-09T19:09:08.903Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -10236,6 +10236,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedAudioComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedMediaComponent"
                     }
                   ]
                 },
@@ -10246,7 +10249,8 @@
                     "shared.video": "#/components/schemas/SharedVideoComponent",
                     "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                     "shared.image": "#/components/schemas/SharedImageComponent",
-                    "shared.audio": "#/components/schemas/SharedAudioComponent"
+                    "shared.audio": "#/components/schemas/SharedAudioComponent",
+                    "shared.media": "#/components/schemas/SharedMediaComponent"
                   }
                 }
               },
@@ -18806,6 +18810,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedMediaComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedAudioComponent"
                     }
                   ]
                 },
@@ -18816,7 +18823,8 @@
                     "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                     "shared.pdf": "#/components/schemas/SharedPdfComponent",
                     "shared.image": "#/components/schemas/SharedImageComponent",
-                    "shared.media": "#/components/schemas/SharedMediaComponent"
+                    "shared.media": "#/components/schemas/SharedMediaComponent",
+                    "shared.audio": "#/components/schemas/SharedAudioComponent"
                   }
                 }
               },
@@ -19712,6 +19720,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedMediaComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedAudioComponent"
                 }
               ]
             },
@@ -19722,7 +19733,8 @@
                 "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                 "shared.pdf": "#/components/schemas/SharedPdfComponent",
                 "shared.image": "#/components/schemas/SharedImageComponent",
-                "shared.media": "#/components/schemas/SharedMediaComponent"
+                "shared.media": "#/components/schemas/SharedMediaComponent",
+                "shared.audio": "#/components/schemas/SharedAudioComponent"
               }
             }
           },
@@ -19812,6 +19824,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/SharedMediaComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SharedAudioComponent"
                       }
                     ]
                   },
@@ -19822,7 +19837,8 @@
                       "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                       "shared.pdf": "#/components/schemas/SharedPdfComponent",
                       "shared.image": "#/components/schemas/SharedImageComponent",
-                      "shared.media": "#/components/schemas/SharedMediaComponent"
+                      "shared.media": "#/components/schemas/SharedMediaComponent",
+                      "shared.audio": "#/components/schemas/SharedAudioComponent"
                     }
                   }
                 },
@@ -19971,6 +19987,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedAudioComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedMediaComponent"
                     }
                   ]
                 },
@@ -19981,7 +20000,8 @@
                     "shared.video": "#/components/schemas/SharedVideoComponent",
                     "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                     "shared.image": "#/components/schemas/SharedImageComponent",
-                    "shared.audio": "#/components/schemas/SharedAudioComponent"
+                    "shared.audio": "#/components/schemas/SharedAudioComponent",
+                    "shared.media": "#/components/schemas/SharedMediaComponent"
                   }
                 }
               },
@@ -20941,6 +20961,9 @@
                           },
                           {
                             "$ref": "#/components/schemas/SharedAudioComponent"
+                          },
+                          {
+                            "$ref": "#/components/schemas/SharedMediaComponent"
                           }
                         ]
                       },
@@ -20951,7 +20974,8 @@
                           "shared.video": "#/components/schemas/SharedVideoComponent",
                           "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                           "shared.image": "#/components/schemas/SharedImageComponent",
-                          "shared.audio": "#/components/schemas/SharedAudioComponent"
+                          "shared.audio": "#/components/schemas/SharedAudioComponent",
+                          "shared.media": "#/components/schemas/SharedMediaComponent"
                         }
                       }
                     },
@@ -21212,6 +21236,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedAudioComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedMediaComponent"
                 }
               ]
             },
@@ -21222,7 +21249,8 @@
                 "shared.video": "#/components/schemas/SharedVideoComponent",
                 "shared.rich-text": "#/components/schemas/SharedRichTextComponent",
                 "shared.image": "#/components/schemas/SharedImageComponent",
-                "shared.audio": "#/components/schemas/SharedAudioComponent"
+                "shared.audio": "#/components/schemas/SharedAudioComponent",
+                "shared.media": "#/components/schemas/SharedMediaComponent"
               }
             }
           },
