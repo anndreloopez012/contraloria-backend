@@ -9,6 +9,11 @@
     "title": {
       "type": "string"
     },
+    "col": {
+      "type": "string",
+      "default": "6",
+      "required": true
+    },
     "file": {
       "type": "media",
       "multiple": false,
@@ -29,6 +34,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "type": {
+      "type": "string",
+      "private": true,
+      "default": "medios"
     }
   }
 }
