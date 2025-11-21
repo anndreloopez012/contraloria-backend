@@ -7,7 +7,6 @@ services:
     working_dir: /app
     ports:
       - "1337:1337"
-      - "9000:9000"
     volumes:
       - ./:/app
       - strapi_uploads:/app/public/uploads
@@ -32,7 +31,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
-      - traefik.http.routers.strapi.rule=Host(`cgc-adm.server-softplus.plus`)
+      - traefik.http.routers.strapi.rule=Host(`adm-cms.cgc.gob.gt`)
       - traefik.http.routers.strapi.entrypoints=websecure
       - traefik.http.routers.strapi.tls=true
       - traefik.http.services.strapi.loadbalancer.server.port=1337
