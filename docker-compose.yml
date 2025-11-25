@@ -11,10 +11,8 @@ services:
       - ./:/app
       - strapi_uploads:/app/public/uploads
     command: sh -c "yarn install --production && yarn build && yarn start"
-    #command: sh -c "yarn install && yarn develop"
     environment:
       NODE_ENV: production
-      #NODE_ENV: development
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_HOST: ${DATABASE_HOST}
@@ -25,22 +23,32 @@ services:
       DATABASE_FILENAME: ${DATABASE_FILENAME}
       JWT_SECRET: ${JWT_SECRET}
     restart: always
-#comentar si es desarrollo
+
     networks:
       - dokploy-network
+
     labels:
       - traefik.enable=true
       - traefik.docker.network=dokploy-network
+
+      # --- HTTP → HTTPS REDIRECT ---
+      - traefik.http.routers.strapi-http.rule=Host(`adm-cms.cgc.gob.gt`)
+      - traefik.http.routers.strapi-http.entrypoints=web
+      - traefik.http.routers.strapi-http.middlewares=strapi-https
+      - traefik.http.middlewares.strapi-https.redirectscheme.scheme=https
+
+      # --- HTTPS ROUTER ---
       - traefik.http.routers.strapi.rule=Host(`adm-cms.cgc.gob.gt`)
       - traefik.http.routers.strapi.entrypoints=websecure
       - traefik.http.routers.strapi.tls=true
+      - traefik.http.routers.strapi.tls.certresolver=dokploy
+
+      # Servicio interno
       - traefik.http.services.strapi.loadbalancer.server.port=1337
 
 networks:
   dokploy-network:
     external: true
-#comentar hasta aqui
 
 volumes:
   strapi_uploads:
-
