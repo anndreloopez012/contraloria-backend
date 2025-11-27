@@ -1,6 +1,9 @@
 export default ({ env }) => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
+    cookie: {
+      secure: false, // <- fuerza que se cree la cookie aunque Strapi vea HTTP
+    },
   },
   apiToken: {
     salt: env('API_TOKEN_SALT'),
