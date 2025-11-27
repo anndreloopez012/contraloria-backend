@@ -42,6 +42,11 @@ services:
       - traefik.http.routers.strapi.tls=true
       - traefik.http.routers.strapi.tls.certresolver=dokploy
 
+      # --- Headers para Strapi detrás del proxy ---
+      - traefik.http.middlewares.strapi-headers.headers.customrequestheaders.X-Forwarded-Proto=https
+      - traefik.http.middlewares.strapi-headers.headers.customrequestheaders.X-Forwarded-Host=cgc-adm.server-softplus.plus
+      - traefik.http.routers.strapi.middlewares=strapi-headers
+
       # Servicio interno
       - traefik.http.services.strapi.loadbalancer.server.port=1337
 
