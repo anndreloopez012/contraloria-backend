@@ -37,7 +37,14 @@ export default [
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
-  'strapi::session',
+  {
+    name: 'strapi::session',
+    config: {
+      cookie: {
+        secure: false, // <--- desactiva secure en HTTP
+      },
+    },
+  },
   'strapi::favicon',
   'strapi::public',
 ];
