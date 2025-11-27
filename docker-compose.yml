@@ -31,20 +31,20 @@ services:
       - traefik.docker.network=dokploy-network
 
       # --- HTTP → HTTPS REDIRECT ---
-      - traefik.http.routers.strapi-http.rule=Host(`cgc-adm.server-softplus.plus`)
+      - traefik.http.routers.strapi-http.rule=Host(`adm-cms.contraloria.gob.gt`)
       - traefik.http.routers.strapi-http.entrypoints=web
       - traefik.http.routers.strapi-http.middlewares=strapi-https
       - traefik.http.middlewares.strapi-https.redirectscheme.scheme=https
 
       # --- HTTPS ROUTER ---
-      - traefik.http.routers.strapi.rule=Host(`cgc-adm.server-softplus.plus`)
+      - traefik.http.routers.strapi.rule=Host(`adm-cms.contraloria.gob.gt`)
       - traefik.http.routers.strapi.entrypoints=websecure
       - traefik.http.routers.strapi.tls=true
       - traefik.http.routers.strapi.tls.certresolver=dokploy
 
       # --- Headers para Strapi detrás del proxy ---
       - traefik.http.middlewares.strapi-headers.headers.customrequestheaders.X-Forwarded-Proto=https
-      - traefik.http.middlewares.strapi-headers.headers.customrequestheaders.X-Forwarded-Host=cgc-adm.server-softplus.plus
+      - traefik.http.middlewares.strapi-headers.headers.customrequestheaders.X-Forwarded-Host=adm-cms.contraloria.gob.gt
       - traefik.http.routers.strapi.middlewares=strapi-headers
 
       # Servicio interno
