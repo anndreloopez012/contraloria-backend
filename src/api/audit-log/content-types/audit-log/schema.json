@@ -7,7 +7,7 @@
     "displayName": "audit-log"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
 
     // Plugin SEO
     seo: {
@@ -20,12 +20,32 @@ export default () => ({
         },
     },
 
-    // Plugin Video Field
-    'video-field': {
-        enabled: true,
+    // Plugin Email (Nodemailer)
+    email: {
+        config: {
+            provider: 'nodemailer',
+            providerOptions: {
+                host: env('SMTP_HOST'),
+                port: env.int('SMTP_PORT', 465),
+                secure: true, // OBLIGATORIO para el puerto 465
+                auth: {
+                    user: env('SMTP_USERNAME'),
+                    pass: env('SMTP_PASSWORD'),
+                },
+                tls: {
+                    rejectUnauthorized: false,
+                },
+            },
+            settings: {
+                defaultFrom: 'no-reply@softplusgt.com',
+                defaultReplyTo: 'soporte@softplusgt.com',
+            },
+        },
     },
 
-    'drag-drop-content-types-strapi5': {
+
+    // Plugin Video Field
+    'video-field': {
         enabled: true,
     },
 
