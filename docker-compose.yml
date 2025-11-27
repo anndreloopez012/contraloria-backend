@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   strapi:
-    image: node:20
+    image: node:22
     container_name: contraloria-backend
     working_dir: /app
     ports:
@@ -13,6 +13,7 @@ services:
     command: sh -c "yarn install --production && yarn build && yarn start"
     environment:
       NODE_ENV: production
+      NODE_OPTIONS: "--max-old-space-size=8192"
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_HOST: ${DATABASE_HOST}

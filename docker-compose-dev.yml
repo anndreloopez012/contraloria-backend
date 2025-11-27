@@ -20,7 +20,7 @@ services:
       - backend_network
 
   strapi:
-    image: node:20
+    image: node:22
     container_name: contraloria-backend
     working_dir: /app
     restart: always
