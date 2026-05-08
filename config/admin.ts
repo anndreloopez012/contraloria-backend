@@ -2,7 +2,7 @@ export default ({ env }) => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
     cookie: {
-      secure: env.bool('ADMIN_COOKIE_SECURE', env('NODE_ENV') === 'production'),
+      secure: env.bool('ADMIN_COOKIE_SECURE', false),
       sameSite: 'lax',
     },
   },
