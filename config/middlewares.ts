@@ -4,6 +4,13 @@ export default [
   {
     name: 'strapi::security',
     config: {
+      frameguard: {
+        action: 'sameorigin',
+      },
+      hsts: {
+        maxAge: 31536000,
+        includeSubDomains: true,
+      },
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
@@ -21,20 +28,27 @@ export default [
           "img-src": ["'self'", "data:", "blob:"],
           "style-src": ["'self'", "'unsafe-inline'", "https:"],
           "font-src": ["'self'", "data:"],
+          "object-src": ["'none'"],
+          "base-uri": ["'self'"],
+          "frame-ancestors": ["'self'"],
         },
       },
     },
   },
+  'global::security-headers',
+  'global::maintenance',
   {
     name: 'strapi::cors',
     config: {
-      origin: '*',
+      origin: process.env.CORS_ORIGIN?.split(',').map((origin) => origin.trim()).filter(Boolean) || [
+        'https://adm-cms.contraloria.gob.gt',
+      ],
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: '*',
     },
   },
-  'strapi::poweredBy',
+  'global::csrf',
   'strapi::query',
   'strapi::body',
   'strapi::session',

@@ -45,6 +45,7 @@ services:
       - ./:/app
       - /app/node_modules 
       - strapi_uploads:/app/public/uploads
+      - strapi_backups:/app/backups
     command: >
       sh -c "
         yarn install &&
@@ -60,6 +61,7 @@ services:
 volumes:
   postgres_data:
   strapi_uploads:
+  strapi_backups:
 
 networks:
   backend_network:

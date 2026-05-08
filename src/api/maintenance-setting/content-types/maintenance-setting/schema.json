@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "maintenance_settings",
+  "info": {
+    "singularName": "maintenance-setting",
+    "pluralName": "maintenance-settings",
+    "displayName": "Modo mantenimiento",
+    "description": "Configuración de la pantalla pública de mantenimiento"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Portal en mantenimiento"
+    },
+    "message": {
+      "type": "text",
+      "required": true,
+      "default": "Estamos realizando tareas de mantenimiento. El servicio volverá a estar disponible pronto."
+    },
+    "estimatedEnd": {
+      "type": "datetime"
+    },
+    "supportEmail": {
+      "type": "email"
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "default": "#f6f8fb",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "textColor": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color",
+      "default": "#1f2937",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    }
+  }
+}

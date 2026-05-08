@@ -1,9 +1,12 @@
 // src/index.ts
+import { startBackupScheduler } from './utils/backups';
 
 export default {
   register() {},
 
   async bootstrap({ strapi }: { strapi: any }) {
+    startBackupScheduler({ strapi });
+
     const auditAction = async (event: any, action: string, model: string) => {
       let entryId: number | null = null;
       let before: any = null;

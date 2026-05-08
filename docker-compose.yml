@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   strapi:
-    image: node:20
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: contraloria-backend
     working_dir: /app
     ports:
@@ -10,6 +12,7 @@ services:
     volumes:
       - ./:/app
       - strapi_uploads:/app/public/uploads
+      - strapi_backups:/app/backups
     command: sh -c "yarn install --production && yarn build && yarn start"
     environment:
       NODE_ENV: production
@@ -56,3 +59,4 @@ networks:
 
 volumes:
   strapi_uploads:
+  strapi_backups:

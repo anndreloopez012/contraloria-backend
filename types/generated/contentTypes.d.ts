@@ -726,6 +726,52 @@ export interface ApiLinkLink extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMaintenanceSettingMaintenanceSetting
+  extends Struct.SingleTypeSchema {
+  collectionName: 'maintenance_settings';
+  info: {
+    description: 'Configuraci\u00F3n de la pantalla p\u00FAblica de mantenimiento';
+    displayName: 'Modo mantenimiento';
+    pluralName: 'maintenance-settings';
+    singularName: 'maintenance-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.DefaultTo<'#f6f8fb'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    estimatedEnd: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::maintenance-setting.maintenance-setting'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Estamos realizando tareas de mantenimiento. El servicio volver\u00E1 a estar disponible pronto.'>;
+    publishedAt: Schema.Attribute.DateTime;
+    supportEmail: Schema.Attribute.Email;
+    textColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'> &
+      Schema.Attribute.DefaultTo<'#1f2937'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Portal en mantenimiento'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMenuItemMenuItem extends Struct.CollectionTypeSchema {
   collectionName: 'menu_items';
   info: {
@@ -1606,6 +1652,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::link.link': ApiLinkLink;
+      'api::maintenance-setting.maintenance-setting': ApiMaintenanceSettingMaintenanceSetting;
       'api::menu-item.menu-item': ApiMenuItemMenuItem;
       'api::menu.menu': ApiMenuMenu;
       'api::n8-n.n8-n': ApiN8NN8N;
