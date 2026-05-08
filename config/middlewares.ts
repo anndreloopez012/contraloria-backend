@@ -1,3 +1,13 @@
+const defaultCorsOrigins = [
+  'https://adm-cms.contraloria.gob.gt',
+  'https://app1.contraloria.gob.gt',
+  'https://app2.contraloria.gob.gt',
+  'https://app3.contraloria.gob.gt',
+  'https://app4.contraloria.gob.gt',
+  'https://dev.contraloria.gob.gt',
+  'https://contraloria.gob.gt',
+];
+
 export default [
   'strapi::logger',
   'strapi::errors',
@@ -40,9 +50,10 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: process.env.CORS_ORIGIN?.split(',').map((origin) => origin.trim()).filter(Boolean) || [
-        'https://adm-cms.contraloria.gob.gt',
-      ],
+      origin:
+        process.env.CORS_ORIGIN?.split(',')
+          .map((origin) => origin.trim().replace(/\/$/, ''))
+          .filter(Boolean) || defaultCorsOrigins,
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       headers: '*',
