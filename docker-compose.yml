@@ -5,15 +5,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NODE_OPTIONS: "--max-old-space-size=8192"
     container_name: contraloria-backend
     working_dir: /app
     ports:
       - "1337:1337"
     volumes:
-      - ./:/app
       - strapi_uploads:/app/public/uploads
       - strapi_backups:/app/backups
-    command: sh -c "yarn install --production && yarn build && yarn start"
+    command: sh -c "yarn start"
     environment:
       NODE_ENV: production
       NODE_OPTIONS: "--max-old-space-size=8192"
