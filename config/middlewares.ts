@@ -46,7 +46,6 @@ export default [
     },
   },
   'global::security-headers',
-  'global::maintenance',
   {
     name: 'strapi::cors',
     config: {
@@ -56,9 +55,18 @@ export default [
           .filter(Boolean) || defaultCorsOrigins,
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-      headers: '*',
+      headers: [
+        'Authorization',
+        'Content-Type',
+        'Origin',
+        'Accept',
+        'X-Requested-With',
+        'X-CSRF-Token',
+        'x-csrf-token',
+      ],
     },
   },
+  'global::maintenance',
   'global::csrf',
   'strapi::query',
   'strapi::body',

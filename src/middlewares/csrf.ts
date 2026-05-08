@@ -27,13 +27,17 @@ export default (_config: any, { strapi }: { strapi: any }) => {
       return next();
     }
 
+    if (ctx.method === 'OPTIONS') {
+      return next();
+    }
+
     const token = ctx.cookies.get(cookieName) || crypto.randomBytes(32).toString('hex');
 
     ctx.cookies.set(cookieName, token, {
       httpOnly: false,
       overwrite: true,
       sameSite: 'lax',
-      secure: secureCookie,
+      secure: secureCookie && ctx.secure,
       path: '/',
     });
 

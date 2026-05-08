@@ -127,7 +127,15 @@ export default (_config: any, { strapi }: { strapi: any }) => {
   };
 
   return async (ctx: any, next: () => Promise<void>) => {
+    if (process.env.MAINTENANCE_ENABLED === 'false') {
+      return next();
+    }
+
     if (process.env.MAINTENANCE_FORCE_DISABLED === 'true') {
+      return next();
+    }
+
+    if (!strapi.contentTypes['api::maintenance-setting.maintenance-setting']) {
       return next();
     }
 
