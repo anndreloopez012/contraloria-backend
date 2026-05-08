@@ -70,6 +70,16 @@ export interface SharedImage extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<6>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images', true>;
+    percentage: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 100;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<100>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.String &
       Schema.Attribute.Private &

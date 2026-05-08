@@ -17,6 +17,13 @@
       "required": true,
       "default": 6
     },
+    "percentage": {
+      "type": "integer",
+      "required": true,
+      "default": 100,
+      "min": 1,
+      "max": 100
+    },
     "type": {
       "type": "string",
       "private": true,
