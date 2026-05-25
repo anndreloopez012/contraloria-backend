@@ -12,8 +12,13 @@
       "configurable": true,
       "displayName": "Imágenes",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": ["images"]
+    },
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.slider-item"
     }
   }
 }
