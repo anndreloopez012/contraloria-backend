@@ -198,6 +198,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSliderItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_slider_items';
+  info: {
+    displayName: 'Slide';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    url: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -206,9 +218,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
     icon: 'address-book';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.Configurable;
+    slides: Schema.Attribute.Component<'shared.slider-item', true> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -245,6 +256,7 @@ declare module '@strapi/strapi' {
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.slider-item': SharedSliderItem;
       'shared.slider': SharedSlider;
       'shared.video': SharedVideo;
     }
