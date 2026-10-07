@@ -16,14 +16,6 @@
       "component": "shared.slider",
       "repeatable": false
     },
-    "Header": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Description": {
       "type": "richtext"
     },
